@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Static Website</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+    color:white;
+    scroll-behavior:smooth;
+}
+
+/* Navigation */
+nav{
+    position:fixed;
+    width:100%;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+nav h2{
+    color:#00f5ff;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:#00f5ff;
+}
+
+/* Hero Section */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:0 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    background:linear-gradient(to right,#00f5ff,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    margin:20px 0;
+    max-width:600px;
+    opacity:0.8;
+}
+
+.hero button{
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#00f5ff,#ff00ff);
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.05);
+}
+
+/* Section */
+section{
+    padding:100px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    background:linear-gradient(to right,#00f5ff,#ff00ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Cards */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h3{
+    margin-bottom:15px;
+    color:#00f5ff;
+}
+
+/* Contact */
+.contact form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.contact input,
+.contact textarea{
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+.contact button{
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(45deg,#00f5ff,#ff00ff);
+    color:white;
+    cursor:pointer;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.4);
+    margin-top:50px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .hero h1{
+        font-size:2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>MyBrand</h2>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<div class="hero" id="home">
+    <h1>Build Something Amazing</h1>
+    <p>Create modern, beautiful, and responsive websites using clean design and smooth color themes.</p>
+    <button onclick="scrollToSection()">Get Started</button>
+</div>
+
+<!-- Features -->
+<section id="features">
+    <div class="section-title">
+        <h2>Features</h2>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <h3>Modern Design</h3>
+            <p>Beautiful gradient themes and glassmorphism effects for premium look.</p>
+        </div>
+        <div class="card">
+            <h3>Responsive</h3>
+            <p>Works perfectly on mobile, tablet, and desktop devices.</p>
+        </div>
+        <div class="card">
+            <h3>Single File</h3>
+            <p>Everything included in one HTML file — easy to deploy.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <div class="section-title">
+        <h2>About Us</h2>
+    </div>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        We focus on building clean and elegant websites with smooth animations and powerful themes.
+        Our mission is to create designs that look premium and professional.
+    </p>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+    <div class="section-title">
+        <h2>Contact</h2>
+    </div>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    © 2026 MyBrand | Designed with ❤️
+</footer>
+
+<script>
+function scrollToSection(){
+    document.getElementById("features").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
