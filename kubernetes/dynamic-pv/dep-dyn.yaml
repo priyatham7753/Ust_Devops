@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-dyn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nfspod
+  template:
+    metadata:
+      labels:
+        app: nfspod
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sh","-c", "echo 'I will complete the 3 tier architecture project by today itself' > data/file1.txt && sleep 3600"]
+        volumeMounts:
+        - name: nfs-pv
+          mountPath: /data
+      volumes:
+      - name: nfs-pv
+        persistentVolumeClaim:
+          claimName: nfs-dyn

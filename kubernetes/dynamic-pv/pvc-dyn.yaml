@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs-dyn
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: nfs-default-storage-class
+  resources:
+    requests:
+      storage: 100Mi
