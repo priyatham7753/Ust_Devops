@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nfsdep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nfspod
+  template:
+    metadata:
+      labels:
+        app: nfspod
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sh","-c", "echo 'i am a very good boy' > data/file1.txt && sleep 3600"]
+        volumeMounts:
+        - name: nfs
+          mountPath: /data
+      volumes:
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: nfspvc
+
+
+
+
